@@ -235,6 +235,112 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/25/ajax/" itemprop="url">
+                  ajax
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-25T09:36:55+08:00" content="2016-10-25">
+              2016-10-25
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/25/ajax/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/25/ajax/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+		  
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>//作者：一陀牛屎</p>
+<p>由于前些天比较忙。。。</p>
+<p>好久没有发博客</p>
+<p>以下是原生的javascript封装的ajax;</p>
+<p>最下面是调用方法</p>
+<p>data 可以多个参数 {a:”b”,b:”b”} 也可以传变量（要带key值）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">function ajax(ajson)&#123;</div><div class="line">	var xhr=window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject(&apos;Microsoft.XMLHTTP&apos;);	</div><div class="line">	var method=ajson.method||&apos;get&apos;,</div><div class="line">		url=ajson.url,</div><div class="line">		ayan=ajson.ayan||true,</div><div class="line">		data=ajson.data||&apos;&apos;,</div><div class="line">		success=ajson.success,</div><div class="line">		error=ajson.error;</div><div class="line">		if(method.toLowerCase()==&apos;get&apos;)&#123;</div><div class="line">			url+=&apos;?&apos;+data+new Date().getTime();	</div><div class="line">		&#125;</div><div class="line">		xhr.open(method ,url,ayan);</div><div class="line">		xhr.setRequestHeader(&apos;content-type&apos; , &apos;application/x-www-form-urlencoded&apos;);</div><div class="line">		xhr.send(data);</div><div class="line">		xhr.onreadystatechange=function()&#123;</div><div class="line">			if(xhr.readState==4)&#123;</div><div class="line">				success&amp;&amp;success( xhr.responseText );</div><div class="line">			&#125;else&#123;</div><div class="line">				error&amp;&amp;error();</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">&#125;</div><div class="line">// ajax调 用 内 容 格 式。。。</div><div class="line">/*ajax(&#123;</div><div class="line">	&apos;method&apos;:&apos;post&apos;,</div><div class="line">	&apos;url&apos;:&apos;abc.php&apos;,</div><div class="line">	&apos;ayan&apos;:true,</div><div class="line">	&apos;data&apos;:&apos;123456&apos;,</div><div class="line">	&apos;success&apos;:function()&#123;&#125;,</div><div class="line">	&apos;error&apos;:function()&#123;&#125;</div><div class="line">	&#125;);*/</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/25/toShow/" itemprop="url">
                   toShow
                 </a>
@@ -761,7 +867,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -771,7 +877,7 @@
           
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
