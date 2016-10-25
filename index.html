@@ -235,6 +235,107 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/25/toShow/" itemprop="url">
+                  toShow
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-25T09:16:40+08:00" content="2016-10-25">
+              2016-10-25
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/25/toShow/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/25/toShow/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+		  
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>完全采用原生封装的移动端弹窗，并用原生封装了fadeOut和fadeIn方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div></pre></td><td class="code"><pre><div class="line">viewport设为320</div><div class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=320,initial-scale=1,user-scalable=0&quot;&gt;</div><div class="line"></div><div class="line">如果不是请自行改样式</div><div class="line">// JavaScript Document</div><div class="line">//作者：yituo</div><div class="line"></div><div class="line">var iBase = &#123;</div><div class="line">	//设置元素透明度,透明度值按IE规则计,即0~100</div><div class="line">	SetOpacity: function(ev, v)&#123;</div><div class="line">		ev.filters ? ev.style.filter = &apos;alpha(opacity=&apos; + v + &apos;)&apos; : ev.style.opacity = v / 100;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">function fadeOut(elem, speed, opacity)&#123;</div><div class="line">    /* 参数说明</div><div class="line">     * elem==&gt;需要淡入的元素</div><div class="line">     * speed==&gt;淡入速度,正整数(可选)</div><div class="line">     * opacity==&gt;淡入到指定的透明度,0~100(可选)</div><div class="line">     */</div><div class="line">    speed = speed || 100;</div><div class="line">    opacity = opacity || 0;</div><div class="line">    //初始化透明度变化值为0</div><div class="line">    var val = 100;</div><div class="line">    //循环将透明值以5递减,即淡出效果</div><div class="line">    (function()&#123;</div><div class="line">        iBase.SetOpacity(elem, val);</div><div class="line">        val -= 5;</div><div class="line">        if (val &gt;= opacity) &#123;</div><div class="line">            setTimeout(arguments.callee, speed);</div><div class="line">        &#125;else if (val &lt; 0) &#123;</div><div class="line">            //元素透明度为0后隐藏元素</div><div class="line">            elem.style.display = &apos;none&apos;;</div><div class="line">        &#125;</div><div class="line">    &#125;)();</div><div class="line">&#125;</div><div class="line">function fadeIn(elem, speed, opacity)&#123;    </div><div class="line">	/* 参数说明    </div><div class="line">	* elem==&gt;需要淡入的元素    </div><div class="line">	* speed==&gt;淡入速度,正整数(可选)    </div><div class="line">	* opacity==&gt;淡入到指定的透明度,0~100(可选)    </div><div class="line">	*/    </div><div class="line">   speed = speed || 60;    </div><div class="line">   opacity = opacity || 100;    </div><div class="line">	//显示元素,并将元素值为0透明度(不可见)    </div><div class="line">   elem.style.display = &apos;block&apos;;    </div><div class="line">   iBase.SetOpacity(elem, 0);    </div><div class="line">	//初始化透明度变化值为0    </div><div class="line">   var val = 0;    </div><div class="line">	//循环将透明值以5递增,即淡入效果    </div><div class="line">   (function()&#123;    </div><div class="line">	   iBase.SetOpacity(elem, val);    </div><div class="line">	   val += 5;    </div><div class="line">	   if (val &lt;= opacity) &#123;    </div><div class="line">		   setTimeout(arguments.callee, speed)    </div><div class="line">	   &#125;    </div><div class="line">   &#125;)();    </div><div class="line">&#125;</div><div class="line">function createDoc(doc,classNames,cssText,inHTML)&#123;</div><div class="line">	var classNam=document.createElement(doc);</div><div class="line">		classNam.innerHTML=inHTML||&apos;&apos;;</div><div class="line">		classNam.className=classNames;</div><div class="line">		classNam.style.cssText=cssText;</div><div class="line">		return classNam;</div><div class="line">&#125;</div><div class="line">function toShows(str)&#123;</div><div class="line">		var flex=createDoc(&quot;div&quot;,&quot;flex&quot;,&quot;position:fixed;top:0px;left:0px;z-index:5;background:rgba(0,0,0,0.8);width:100%;height:100%;display:none;&quot;);</div><div class="line">		var fle_box=createDoc(&quot;div&quot;,&quot;fle_box&quot;,&quot;width:90%;height:220px;margin:24% auto;background:#fff;border-radius:15px;text-align:center;&quot;);</div><div class="line">		var title=createDoc(&quot;h2&quot;,&quot;title&quot;,&quot;font-size:20px;padding:10px 0px;font-weight:700;&quot;,&quot;提示&quot;);</div><div class="line">		fle_box.appendChild(title);</div><div class="line">		var fle_con=createDoc(&quot;div&quot;,&quot;fle_con&quot;,&quot;font-size:18px;height:40px;display:flex;display: -webkit-flex;align-items:center;justify-content:center;padding:10px;box-sizing:border-box;&quot;,str);</div><div class="line">		fle_box.appendChild(fle_con);</div><div class="line">		var fle_btn=createDoc(&quot;div&quot;,&quot;fle_btn&quot;,&quot;width:20%;margin:auto;margin-top:15%;font-size:20px;background:#be9662;padding:5px 30px;border-radius:3px;color:#fff;&quot;,&quot;确定&quot;);</div><div class="line">		fle_box.appendChild(fle_btn);</div><div class="line">		flex.appendChild(fle_box);</div><div class="line">		document.body.appendChild(flex);</div><div class="line">		var flexs=document.getElementsByClassName(&apos;flex&apos;)[0];</div><div class="line">		fadeIn(flexs);</div><div class="line">		fle_btn.addEventListener(&apos;click&apos;,function()&#123;</div><div class="line">			fadeOut(flexs);</div><div class="line">			setTimeout(function()&#123;</div><div class="line">				flex.remove(flexs);	</div><div class="line">			&#125;,1200)	</div><div class="line">		&#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">//调用插件。。。</div><div class="line">// window.onload=function()&#123;</div><div class="line">// 	toShows(&apos;请输入手机号码请输&apos;);</div><div class="line">// &#125;</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/21/css3/" itemprop="url">
                   css3
                 </a>
@@ -660,7 +761,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
